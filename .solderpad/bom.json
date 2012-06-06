@@ -1,0 +1,24 @@
+{
+	"items": [
+		{
+			"designator": "C1",
+			"value": "100pF",
+			"description": ""
+		},
+		{	
+			"designator": "R1",
+			"value": "1M",
+			"description": ""
+		},
+		{
+			"designator": "Q1",
+			"value": "PN4117",
+			"description": ""
+		},
+		{
+			"designator": "R2",
+			"value": "47K",
+			"description": ""
+		}
+	]
+}
