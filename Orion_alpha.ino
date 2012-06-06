@@ -22,14 +22,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>. */
 #include <EtherCard.h>
 
 #define JFET A0                   // Nanode pin connected to JFET source
-#define METER 3                   // Nanode pin connected to moving coil meter
+#define METER 3                   // Nanode pin connected to moving coil meter (not used at present)
 #define HOLD_LOW 300              // Time in ms to hold the JFET source low
 #define READ_DELAY 500            // Time in ms between taking voltage readings
 
 // Set the Cosm feed ID and API key
 
 #define FEED    "60745" 
-#define APIKEY  "secret-key-here"
+#define APIKEY  "secretkey"
 
 typedef byte bytes6_t[6];
 
@@ -89,6 +89,9 @@ void setup()
 
 void loop() 
 {
+  if(Stash::freeCount()<5){ // reset EtherCard stash if running low
+    Stash::initMap(56); 
+  }
   voltageDrift = measure_drift();
   printf_P(PSTR("Level: "));
   Serial.println(voltageDrift);
